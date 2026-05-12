@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --romantic-light:  #FFE4E8;
+  --romantic-soft:   #FFB3C6;
+  --romantic-medium: #FF6B9D;
+  --romantic-deep:   #C9184A;
+  --romantic-dark:   #590D22;
+  --glass-bg:        rgba(255, 255, 255, 0.08);
+  --glass-border:    rgba(255, 255, 255, 0.15);
+  --glass-shadow:    0 8px 32px rgba(255, 107, 157, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #1a0010;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a0010;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FF6B9D, #C9184A);
+  border-radius: 3px;
+}
+
+/* Glass card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 1.5rem;
+}
+
+/* Romantic gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #FFB3C6 0%, #FF6B9D 50%, #C9184A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background gradient */
+.bg-romantic {
+  background: radial-gradient(ellipse at top, #3d0020 0%, #1a0010 40%, #0d0008 100%);
+}
+
+/* Neon glow button */
+.btn-love {
+  background: linear-gradient(135deg, #FF6B9D, #C9184A);
+  box-shadow: 0 0 30px rgba(255, 107, 157, 0.4), 0 4px 20px rgba(201, 24, 74, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  border-radius: 9999px;
+}
+.btn-love:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 60px rgba(255, 107, 157, 0.7), 0 8px 40px rgba(201, 24, 74, 0.5);
+}
+.btn-love:active {
+  transform: scale(0.97);
+}
+
+/* Floating heart base */
+@keyframes floatHeart {
+  0%   { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(0.3) rotate(20deg); opacity: 0; }
+}
+
+/* Particle burst */
+@keyframes burstHeart {
+  0%   { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+/* Orb blob animation */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.25;
+  animation: blob 7s infinite;
+  pointer-events: none;
+}
+
+/* Shimmer overlay */
+.shimmer-text {
+  background: linear-gradient(90deg,
+    rgba(255,179,198,0) 0%,
+    rgba(255,179,198,0.8) 50%,
+    rgba(255,179,198,0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* Section heading */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* Music wave bars */
+@keyframes musicBar {
+  0%, 100% { height: 4px; }
+  50%       { height: 20px; }
+}
+
+.music-bar {
+  width: 3px;
+  background: var(--romantic-medium);
+  border-radius: 2px;
+  animation: musicBar 0.8s ease-in-out infinite;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Countdown card digit */
+.countdown-digit {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(180deg, #FFB3C6, #FF6B9D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sparkle */
+@keyframes sparklePop {
+  0%   { transform: scale(0) rotate(0deg); opacity: 0; }
+  50%  { transform: scale(1) rotate(90deg); opacity: 1; }
+  100% { transform: scale(0) rotate(180deg); opacity: 0; }
+}
+
+.sparkle-star {
+  animation: sparklePop var(--dur, 2s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
